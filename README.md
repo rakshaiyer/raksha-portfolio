@@ -36,7 +36,8 @@ For production, add the same variable in your Vercel project settings under Envi
 
 ## Project Structure
 
-.
+```markdown
+
 ├── public/                      # Static assets (resume, images, favicon)
 │   └── shreeRakshaResume.pdf
 ├── src/
@@ -66,6 +67,8 @@ For production, add the same variable in your Vercel project settings under Envi
 ├── .env.local                   # Local environment variables (not committed)
 ├── .gitignore                   # Git ignore rules
 └── README.md                    # Project documentation
+
+```
 
 ## Responsive layout (desktop and mobile)
 
