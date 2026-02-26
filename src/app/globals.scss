@@ -24,15 +24,15 @@ body {
   overflow-x: hidden;
 }
 
-/* 🚀 DESKTOP: Lock page scroll (scroll inside card) */
-@media (min-width: 901px) {
-  html, body {
-    height: 100%;
-    overflow: hidden;
-  }
-}
+/*  DESKTOP: Lock page scroll (scroll inside card) */
+// @media (min-width: 901px) {
+//   html, body {
+//     height: 100%;
+//     overflow: hidden;
+//   }
+// }
 
-/* 📱 MOBILE: Allow normal page scroll */
+/*  MOBILE: Allow normal page scroll */
 @media (max-width: 900px) {
   html, body {
     height: auto;
