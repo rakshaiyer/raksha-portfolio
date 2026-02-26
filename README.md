@@ -1,6 +1,12 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Raksha Portfolio
+
+This is a [Next.js](https://nextjs.org) portfolio project built using the App Router and TypeScript. It showcases projects, skills, resume, and includes a secure contact form powered by Formspree.
 
 ## Getting Started
+
+First, install dependencies:
+
+npm install
 
 First, run the development server:
 
@@ -16,9 +22,63 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the page by modifying src/app/page.tsx. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Environment Variables
+
+Create a .env.local file in the root directory:
+
+FORMSPREE_ENDPOINT=[https://formspree.io/f/your_form_id]
+
+For production, add the same variable in your Vercel project settings under Environment Variables.
+
+## Project Structure
+
+src/
+  app/
+    api/contact/route.ts
+    layout.tsx
+    page.tsx
+  components/
+    about.tsx
+    contact.tsx
+    dashboard.tsx
+    hero.tsx
+    projects.tsx
+    resume.tsx
+    skills.tsx
+  data/
+    content.json
+
+public/
+  shreeRakshaResume.pdf
+Features
+
+## Responsive layout (desktop and mobile)
+
+## Modular component architecture
+
+Resume download
+
+## Contact form with:
+
+Email validation
+
+Server-side rate limiting
+
+Spam protection (Formspree)
+
+Environment variable configuration
+
+Deployment-ready setup for Vercel
+
+Build for Production
+
+```bash
+npm run build
+
+npm start
+```
 
 ## Learn More
 
@@ -34,3 +94,7 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+
