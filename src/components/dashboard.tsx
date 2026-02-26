@@ -63,8 +63,10 @@ export default function DashboardLayout() {
               alt="Profile Avatar"
               className={styles.avatar}
             />
-            <h2 className={styles.name}>{profile.name}</h2>
-            <p className={styles.role}>{profile.role}</p>
+            <div className={styles.profileText}>
+              <h2 className={styles.name}>{profile.name}</h2>
+              <p className={styles.role}>{profile.role}</p>
+            </div>
           </div>
 
           <div className={styles.nav}>
@@ -98,6 +100,7 @@ export default function DashboardLayout() {
             </div>
           </div>
 
+          
           <div className={styles.social}>
             {profile.social?.map((item, i) => (
               <a

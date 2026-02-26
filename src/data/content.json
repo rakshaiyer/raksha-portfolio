@@ -17,42 +17,26 @@
     "description": "I'm a frontend and React Native engineer with 3+ years of shipping mobile and web apps that real people use every day. I care deeply about how things feel to use — clean state management, strong architecture, fast rendering, and interfaces that stay out of the way. Right now I'm building smart home experiences at Suitable AI. Before that, I spent nearly 3 years at SpurTree Technologies building CRM-driven apps used by B2B and B2C retail teams across India."
   },
 "skills": {
-  "core": [
-    { "name": "React Native", "level": 90 },
-    { "name": "React.js", "level": 95 },
-    { "name": "TypeScript", "level": 85 },
-    { "name": "Redux Toolkit", "level": 80 },
-    { "name": "Next.js", "level": 75 },
-    { "name": "Node.js", "level": 50 }
-  ],
   "groups": [
     {
-      "title": "Languages",
-      "items": ["JavaScript", "TypeScript", "HTML", "CSS"]
+      "title": "Frontend & Mobile",
+      "items": ["React Native (CLI & Expo )", "React.js", "Next.js", "Redux Toolkit", "TypeScript"]
     },
     {
-      "title": "Frameworks",
-      "items": ["React Native (Expo)", "React.js", "Redux Toolkit", "Node.js"]
-    },
-    {
-      "title": "SDKs & Integrations",
-      "items": ["SFDC", "CustomerGlu", "HyperVerge", "Vispera", "WebEngage", "Okta", "Stripe"]
+      "title": "Backend & APIs",
+      "items": ["Node.js"]
     },
     {
       "title": "Databases",
-      "items": ["MySQL", "MongoDB"]
+      "items": ["MongoDB", "MySQL"]
     },
     {
       "title": "Cloud & DevOps",
       "items": ["AWS (S3, CloudFront)", "Firebase", "CI/CD"]
     },
     {
-      "title": "Tools & Methodologies",
-      "items": ["Git", "GitHub", "Bitbucket", "Jira", "Agile", "SCRUM", "SDLC"]
-    },
-    {
-      "title": "UI/UX",
-      "items": ["Figma", "Light/Dark Mode", "Localization"]
+      "title": "Integrations",
+      "items": ["SFDC", "CustomerGlu", "HyperVerge", "Vispera", "WebEngage", "Okta", "Stripe"]
     }
   ]
 },

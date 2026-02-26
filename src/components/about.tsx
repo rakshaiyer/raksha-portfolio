@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import content from "@/data/content.json";
 import styles from "./about.module.scss";
 
@@ -6,54 +7,57 @@ type SkillGroup = {
   items: string[];
 };
 
-type CoreSkill = {
-  name: string;
-  level: number;
-};
-
 export default function About() {
-  const { about, skills } = content;
+  const { about, skills } = content as {
+    about: {
+      title: string;
+      description: string;
+    };
+    skills: {
+      groups: SkillGroup[];
+    };
+  };
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>{about.title}</h1>
       <p className={styles.description}>{about.description}</p>
 
-      {/* Core Skill Progress Bars */}
-      <div className={styles.coreSkills}>
+      <div className={styles.skillsSection}>
         <h2>Core Strengths</h2>
 
-        <div className={styles.progressWrapper}>
-          {skills.core.map((skill: CoreSkill, i: number) => (
-            <div key={i} className={styles.skillBar}>
-              <div className={styles.skillHeader}>
-                <span>{skill.name}</span>
-                <span className={styles.level}>{skill.level}%</span>
-              </div>
-
-              <div className={styles.progress}>
-                <div
-                  className={styles.progressFill}
-                  style={{ width: `${skill.level}%` }}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Grouped Skills */}
-      <div className={styles.groupedSkills}>
         {skills.groups.map((group: SkillGroup, i: number) => (
           <div key={i} className={styles.skillGroup}>
             <h3>{group.title}</h3>
-            <div className={styles.skillTags}>
+
+            <motion.div
+              className={styles.skillTags}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                hidden: {},
+                visible: {
+                  transition: {
+                    staggerChildren: 0.08,
+                  },
+                },
+              }}
+            >
               {group.items.map((item: string, j: number) => (
-                <span key={j} className={styles.tag}>
+                <motion.span
+                  key={j}
+                  className={styles.tag}
+                  variants={{
+                    hidden: { opacity: 0, y: 10 },
+                    visible: { opacity: 1, y: 0 },
+                  }}
+                  transition={{ duration: 0.35 }}
+                >
                   {item}
-                </span>
+                </motion.span>
               ))}
-            </div>
+            </motion.div>
           </div>
         ))}
       </div>
