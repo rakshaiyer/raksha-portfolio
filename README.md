@@ -34,8 +34,6 @@ For production, add the same variable in your Vercel project settings under Envi
 
 ## Project Structure
 
-## Project Structure
-
 ```markdown
 
 ├── public/                      # Static assets (resume, images, favicon)
@@ -70,9 +68,9 @@ For production, add the same variable in your Vercel project settings under Envi
 
 ```
 
-## Responsive layout (desktop and mobile)
+Responsive layout (desktop and mobile)
 
-## Modular component architecture
+Modular component architecture
 
 Resume download
 
