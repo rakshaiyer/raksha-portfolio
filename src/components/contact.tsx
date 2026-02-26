@@ -4,6 +4,15 @@ import { useState } from "react";
 import content from "@/data/content.json";
 import styles from "./contact.module.scss";
 
+type FormData = {
+  name: string;
+  email: string;
+  phone: string;
+};
+
+type FormErrors = {
+  email?: string;
+};
 export default function Contact() {
   const { contact } = content;
 
@@ -14,12 +23,12 @@ export default function Contact() {
     company: "",
   });
 
-  const [errors, setErrors] = useState<any>({});
+  const [errors, setErrors] = useState<FormErrors>({});
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const validate = () => {
-    const newErrors: any = {};
+    const newErrors: FormErrors = {};
 
     if (!formData.email) {
       newErrors.email = "Email is required";
@@ -31,8 +40,9 @@ export default function Contact() {
 
     return newErrors;
   };
-
-  const handleSubmit = async (e: any) => {
+const handleSubmit = async (
+  e: React.FormEvent<HTMLFormElement>
+) => {
     e.preventDefault();
 
     const validationErrors = validate();
