@@ -1,0 +1,44 @@
+.section {
+  padding: 100px 80px;
+}
+
+.title {
+  font-size: 48px;
+  margin-bottom: 60px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.skill {
+  padding: 20px;
+  border-radius: 16px;
+
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+
+  text-align: center;
+}
+
+/* -------- MOBILE -------- */
+
+@media (max-width: 768px) {
+
+  .section {
+    padding: 40px 10px;
+  }
+
+  .title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}

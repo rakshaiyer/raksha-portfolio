@@ -1,0 +1,130 @@
+{
+  "profile": {
+    "name": "Shree Raksha G M",
+    "role": "Frontend & React Native Engineer",
+    "resumeFile": "/Raksha_Iyer_Resume.pdf",
+    "email": "rakshaiyer1234@gmail.com",
+    "location": "Bengaluru, India",
+    "phone": "9740279550",
+    "social": [
+      { "platform": "github", "url": "https://github.com/rakshaiyer" },
+      { "platform": "linkedin", "url": "https://www.linkedin.com/in/shree-raksha-b0b6641a5/" }
+    ]
+  },
+
+  "about": {
+    "title": "About",
+    "description": "I'm a frontend and React Native engineer with 3+ years of shipping mobile and web apps that real people use every day. I care deeply about how things feel to use — clean state management, strong architecture, fast rendering, and interfaces that stay out of the way. Right now I'm building smart home experiences at Suitable AI. Before that, I spent nearly 3 years at SpurTree Technologies building CRM-driven apps used by B2B and B2C retail teams across India."
+  },
+"skills": {
+  "core": [
+    { "name": "React Native", "level": 90 },
+    { "name": "React.js", "level": 95 },
+    { "name": "TypeScript", "level": 85 },
+    { "name": "Redux Toolkit", "level": 80 },
+    { "name": "Next.js", "level": 75 },
+    { "name": "Node.js", "level": 50 }
+  ],
+  "groups": [
+    {
+      "title": "Languages",
+      "items": ["JavaScript", "TypeScript", "HTML", "CSS"]
+    },
+    {
+      "title": "Frameworks",
+      "items": ["React Native (Expo)", "React.js", "Redux Toolkit", "Node.js"]
+    },
+    {
+      "title": "SDKs & Integrations",
+      "items": ["SFDC", "CustomerGlu", "HyperVerge", "Vispera", "WebEngage", "Okta", "Stripe"]
+    },
+    {
+      "title": "Databases",
+      "items": ["MySQL", "MongoDB"]
+    },
+    {
+      "title": "Cloud & DevOps",
+      "items": ["AWS (S3, CloudFront)", "Firebase", "CI/CD"]
+    },
+    {
+      "title": "Tools & Methodologies",
+      "items": ["Git", "GitHub", "Bitbucket", "Jira", "Agile", "SCRUM", "SDLC"]
+    },
+    {
+      "title": "UI/UX",
+      "items": ["Figma", "Light/Dark Mode", "Localization"]
+    }
+  ]
+},
+
+  "projects": {
+    "title": "Selected Work",
+    "items": [
+      {
+        "title": "ControlHub",
+        "type": "React Native",
+        "description": "A production-style React Native app built around feature-based architecture with focus on separation of concerns and optimized rendering as features scaled.",
+        "tech": ["React Native", "Redux Toolkit", "Expo"],
+        "github": "",
+        "live": ""
+      },
+      {
+        "title": "Analytics Dashboard",
+        "type": "React",
+        "description": "A scalable React dashboard with filtering, server-side pagination and reusable UI components designed for long-term maintainability.",
+        "tech": ["React", "TypeScript", "SCSS"],
+        "github": "",
+        "live": ""
+      }
+    ]
+  },
+
+  "resume": {
+    "title": "Resume",
+    "experience": [
+      {
+        "company": "Suitable AI (Simon Electric)",
+        "role": "Mobile Software Engineer",
+        "duration": "Jul 2025 – Present",
+        "points": [
+          "Building a React Native smart home app controlling 5+ IoT device categories.",
+          "Reduced manual user actions by 30–40% by designing automation workflows from scratch.",
+          "Improved bulk action execution time by ~25% through rendering and logic optimisations.",
+          "Delivered dark mode and full localisation support for global accessibility."
+        ]
+      },
+      {
+        "company": "SpurTree Technologies",
+        "role": "Software Engineer",
+        "duration": "Aug 2022 – Jul 2025",
+        "points": [
+          "Built B2B and B2C React Native apps integrated with CRM systems used by retail teams.",
+          "Implemented offline-first architecture using SmartStore to maintain usability without connectivity.",
+          "Integrated Vispera and CustomerGlu SDKs in coordination with backend and product teams.",
+          "Managed Play Store and App Store releases across multiple production versions."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "B.E – Computer Science",
+        "duration": "2018 – 2022",
+        "institution": "Vidya Vardaka College of Engineering, Mysore"
+      }
+    ]
+  },
+
+  "contact": {
+  "title": "Contact Me",
+  "description": "Interested in working together? Drop your details and I’ll get back to you.",
+  "fields": [
+    { "name": "name", "label": "Full Name", "type": "text" },
+    { "name": "email", "label": "Email", "type": "email" },
+    { "name": "phone", "label": "Phone Number", "type": "tel" }
+  ],
+  "buttonText": "Send Message",
+  "successTitle": "Thanks for reaching out!",
+  "successMessage": "I’ve received your message and will get back to you shortly."
+
+}
+}

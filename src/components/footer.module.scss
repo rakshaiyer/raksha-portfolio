@@ -1,0 +1,31 @@
+.footer {
+  padding: 60px 0;
+  border-top: 1px solid #1a1a1a;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  font-size: 14px;
+  color: #666;
+}
+
+.right a {
+  font-size: 14px;
+  color: #666;
+  transition: 0.3s ease;
+}
+
+.right a:hover {
+  color: white;
+}
