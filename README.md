@@ -34,25 +34,38 @@ For production, add the same variable in your Vercel project settings under Envi
 
 ## Project Structure
 
-src/
-  app/
-    api/contact/route.ts
-    layout.tsx
-    page.tsx
-  components/
-    about.tsx
-    contact.tsx
-    dashboard.tsx
-    hero.tsx
-    projects.tsx
-    resume.tsx
-    skills.tsx
-  data/
-    content.json
+## Project Structure
 
-public/
-  shreeRakshaResume.pdf
-Features
+.
+├── public/                      # Static assets (resume, images, favicon)
+│   └── shreeRakshaResume.pdf
+├── src/
+│   ├── app/                     # App Router structure
+│   │   ├── api/
+│   │   │   └── contact/
+│   │   │       └── route.ts     # Server-side contact API (rate limited)
+│   │   ├── layout.tsx           # Root layout
+│   │   ├── page.tsx             # Entry page
+│   │   └── globals.scss         # Global styles
+│   │
+│   ├── components/              # Reusable UI components
+│   │   ├── about.tsx
+│   │   ├── contact.tsx
+│   │   ├── dashboard.tsx
+│   │   ├── hero.tsx
+│   │   ├── projects.tsx
+│   │   ├── resume.tsx
+│   │   ├── skills.tsx
+│   │   └── *.module.scss        # Component-level styles
+│   │
+│   └── data/
+│       └── content.json         # Static content configuration
+│
+├── next.config.js               # Next.js configuration
+├── package.json                 # Dependencies and scripts
+├── .env.local                   # Local environment variables (not committed)
+├── .gitignore                   # Git ignore rules
+└── README.md                    # Project documentation
 
 ## Responsive layout (desktop and mobile)
 
