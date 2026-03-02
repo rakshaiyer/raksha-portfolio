@@ -11,6 +11,12 @@
       { "platform": "linkedin", "url": "https://www.linkedin.com/in/shree-raksha-b0b6641a5/" }
     ]
   },
+   "navigation": [
+    { "key": "about", "label": "About" },
+    { "key": "resume", "label": "Resume" },
+    { "key": "projects", "label": "Projects" },
+    { "key": "contact", "label": "Contact Me" }
+  ],
 
   "about": {
     "title": "About",

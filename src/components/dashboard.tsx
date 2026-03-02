@@ -26,9 +26,8 @@ export default function DashboardLayout() {
   const [isMobile, setIsMobile] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showResumeModal, setShowResumeModal] = useState(false);
 
-  const { profile } = content;
+  const { profile, navigation } = content;
 
   useEffect(() => {
     const checkMobile = () => {
@@ -97,15 +96,15 @@ export default function DashboardLayout() {
             {/* NAV (Desktop always visible, Mobile only if open) */}
             {(!isMobile || menuOpen) && (
               <div className={styles.nav}>
-                {["about", "resume", "projects", "contact"].map((tab) => (
+                {navigation.map((item) => (
                   <button
-                    key={tab}
-                    onClick={() => handleTabClick(tab)}
+                    key={item.key}
+                    onClick={() => handleTabClick(item.key)}
                     className={`${styles.tab} ${
-                      activeTab === tab ? styles.activeTab : ""
+                      activeTab === item.key ? styles.activeTab : ""
                     }`}
                   >
-                    {tab.toUpperCase()}
+                    {item.label.toUpperCase()}
                   </button>
                 ))}
               </div>
@@ -143,12 +142,14 @@ export default function DashboardLayout() {
             </div>
 
             {/* Resume Modal Trigger */}
-            <button
+            <a
+              href="/shreeRakshaResume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.download}
-              onClick={() => setShowResumeModal(true)}
             >
               Preview Resume
-            </button>
+            </a>
           </aside>
         )}
 
@@ -178,26 +179,6 @@ export default function DashboardLayout() {
           </main>
         )}
       </div>
-
-      {/* RESUME MODAL */}
-      {showResumeModal && (
-        <div className={styles.resumeModal}>
-          <div className={styles.resumeContent}>
-            <button
-              className={styles.closeModal}
-              onClick={() => setShowResumeModal(false)}
-            >
-              ✕
-            </button>
-
-            <iframe
-              src="/shreeRakshaResume.pdf"
-              width="100%"
-              height="600px"
-            />
-          </div>
-        </div>
-      )}
     </>
   );
 }
