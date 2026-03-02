@@ -1,33 +1,44 @@
-import { motion } from "framer-motion";
-import content from "@/data/content.json";
-import styles from "./about.module.scss";
+"use client";
 
-type SkillGroup = {
-  title: string;
-  items: string[];
-};
+import { motion } from "framer-motion";
+import styles from "./about.module.scss";
+import Link from "next/link";
+
+import rawContent from "@/data/content.json";
+import type { Content } from "@/types/content";
+
+const content: Content = rawContent;
 
 export default function About() {
-  const { about, skills } = content as {
-    about: {
-      title: string;
-      description: string;
-    };
-    skills: {
-      groups: SkillGroup[];
-    };
-  };
+  const { about, skills, rnUpgrade } = content;
 
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.title}>{about.title}</h1>
-      <p className={styles.description}>{about.description}</p>
+
+      {about.description.map((para, i) => (
+        <p key={i} className={styles.description}>
+          {para}
+        </p>
+      ))}
+
+      <div className={styles.challengeCard}>
+        <h3>{rnUpgrade.title}</h3>
+        <p>{rnUpgrade.intro}</p>
+
+        <Link
+          href="/engineering/rn-upgrade"
+          className={styles.challengeLink}
+        >
+          View Technical Breakdown →
+        </Link>
+      </div>
 
       <div className={styles.skillsSection}>
         <h2>Core Strengths</h2>
 
-        {skills.groups.map((group: SkillGroup, i: number) => (
-          <div key={i} className={styles.skillGroup}>
+        {skills.groups.map((group) => (
+          <div key={group.title} className={styles.skillGroup}>
             <h3>{group.title}</h3>
 
             <motion.div
@@ -44,9 +55,9 @@ export default function About() {
                 },
               }}
             >
-              {group.items.map((item: string, j: number) => (
+              {group.items.map((item) => (
                 <motion.span
-                  key={j}
+                  key={item}
                   className={styles.tag}
                   variants={{
                     hidden: { opacity: 0, y: 10 },
