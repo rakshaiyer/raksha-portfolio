@@ -2,7 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Mail, Phone, MapPin, Github, Linkedin, ArrowLeft } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Github,
+  Linkedin,
+  ArrowLeft,
+  Menu,
+  X,
+} from "lucide-react";
 
 import styles from "./dashboard.module.scss";
 import content from "@/data/content.json";
@@ -16,6 +25,8 @@ export default function DashboardLayout() {
   const [activeTab, setActiveTab] = useState("about");
   const [isMobile, setIsMobile] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showResumeModal, setShowResumeModal] = useState(false);
 
   const { profile } = content;
 
@@ -33,7 +44,8 @@ export default function DashboardLayout() {
     setActiveTab(tab);
 
     if (isMobile) {
-      setShowSidebar(false); // collapse sidebar on mobile
+      setMenuOpen(false);
+      setShowSidebar(false);
     }
   };
 
@@ -53,105 +65,139 @@ export default function DashboardLayout() {
   };
 
   return (
-    <div className={styles.wrapper}>
-      {/* SIDEBAR */}
-      {(!isMobile || showSidebar) && (
-        <aside className={styles.sidebar}>
-          <div className={styles.profile}>
-            <img
-              src="/avatar-darktheme.png"
-              alt="Profile Avatar"
-              className={styles.avatar}
-            />
-            <div className={styles.profileText}>
-              <h2 className={styles.name}>{profile.name}</h2>
-              <p className={styles.role}>{profile.role}</p>
-            </div>
-          </div>
+    <>
+      <div className={styles.wrapper}>
+        {/* SIDEBAR */}
+        {(!isMobile || showSidebar) && (
+          <aside className={styles.sidebar}>
+            {/* Mobile Top Bar */}
+            {isMobile && (
+              <div className={styles.mobileHeader}>
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className={styles.hamburger}
+                >
+                  {menuOpen ? <X size={22} /> : <Menu size={22} />}
+                </button>
+              </div>
+            )}
 
-          <div className={styles.nav}>
-            {["about", "resume", "projects", "contact"].map((tab) => (
-              <button
-                key={tab}
-                onClick={() => handleTabClick(tab)}
-                className={`${styles.tab} ${
-                  activeTab === tab ? styles.activeTab : ""
-                }`}
-              >
-                {tab.toUpperCase()}
-              </button>
-            ))}
-          </div>
-
-          <div className={styles.infoBlock}>
-            <div className={styles.infoItem}>
-              <Mail size={16} />
-              <span>{profile.email}</span>
+            <div className={styles.profile}>
+              <img
+                src="/avatar-darktheme.png"
+                alt="Profile Avatar"
+                className={styles.avatar}
+              />
+              <div className={styles.profileText}>
+                <h2 className={styles.name}>{profile.name}</h2>
+                <p className={styles.role}>{profile.role}</p>
+              </div>
             </div>
 
-            <div className={styles.infoItem}>
-              <Phone size={16} />
-              <span>{profile.phone}</span>
+            {/* NAV (Desktop always visible, Mobile only if open) */}
+            {(!isMobile || menuOpen) && (
+              <div className={styles.nav}>
+                {["about", "resume", "projects", "contact"].map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => handleTabClick(tab)}
+                    className={`${styles.tab} ${
+                      activeTab === tab ? styles.activeTab : ""
+                    }`}
+                  >
+                    {tab.toUpperCase()}
+                  </button>
+                ))}
+              </div>
+            )}
+
+            <div className={styles.infoBlock}>
+              <div className={styles.infoItem}>
+                <Mail size={16} />
+                <span>{profile.email}</span>
+              </div>
+
+              <div className={styles.infoItem}>
+                <Phone size={16} />
+                <span>{profile.phone}</span>
+              </div>
+
+              <div className={styles.infoItem}>
+                <MapPin size={16} />
+                <span>{profile.location}</span>
+              </div>
             </div>
 
-            <div className={styles.infoItem}>
-              <MapPin size={16} />
-              <span>{profile.location}</span>
+            <div className={styles.social}>
+              {profile.social?.map((item, i) => (
+                <a
+                  key={i}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.platform === "github" && <Github size={18} />}
+                  {item.platform === "linkedin" && <Linkedin size={18} />}
+                </a>
+              ))}
             </div>
-          </div>
 
-          
-          <div className={styles.social}>
-            {profile.social?.map((item, i) => (
-              <a
-                key={i}
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.platform === "github" && <Github size={18} />}
-                {item.platform === "linkedin" && <Linkedin size={18} />}
-              </a>
-            ))}
-          </div>
-
-          <a
-            href="/shreeRakshaResume.pdf"
-            download="shreeRakshaResume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.download}
-          >
-            Download Resume
-          </a>
-        </aside>
-      )}
-
-      {/* MAIN */}
-      {(!isMobile || !showSidebar || activeTab === "about") && (
-        <main className={styles.main}>
-          {isMobile && !showSidebar && (
+            {/* Resume Modal Trigger */}
             <button
-              className={styles.mobileBack}
-              onClick={() => setShowSidebar(true)}
+              className={styles.download}
+              onClick={() => setShowResumeModal(true)}
             >
-              <ArrowLeft size={18} /> Back
+              Preview Resume
             </button>
-          )}
+          </aside>
+        )}
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+        {/* MAIN */}
+        {(!isMobile || !showSidebar || activeTab === "about") && (
+          <main className={styles.main}>
+            {isMobile && !showSidebar && (
+              <button
+                className={styles.mobileBack}
+                onClick={() => setShowSidebar(true)}
+              >
+                <ArrowLeft size={18} /> Back
+              </button>
+            )}
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTab}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {renderContent()}
+              </motion.div>
+            </AnimatePresence>
+          </main>
+        )}
+      </div>
+
+      {/* RESUME MODAL */}
+      {showResumeModal && (
+        <div className={styles.resumeModal}>
+          <div className={styles.resumeContent}>
+            <button
+              className={styles.closeModal}
+              onClick={() => setShowResumeModal(false)}
             >
-              {renderContent()}
-            </motion.div>
-          </AnimatePresence>
-        </main>
+              ✕
+            </button>
+
+            <iframe
+              src="/shreeRakshaResume.pdf"
+              width="100%"
+              height="600px"
+            />
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 }
