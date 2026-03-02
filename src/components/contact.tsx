@@ -40,9 +40,7 @@ export default function Contact() {
 
     return newErrors;
   };
-const handleSubmit = async (
-  e: React.FormEvent<HTMLFormElement>
-) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const validationErrors = validate();
@@ -65,7 +63,7 @@ const handleSubmit = async (
       if (!res.ok) throw new Error("Failed to submit");
 
       setSuccess(true);
-      setFormData({ name: "", email: "", phone: "",  company: ""  });
+      setFormData({ name: "", email: "", phone: "", company: "" });
       setErrors({});
     } catch (err) {
       console.error("Submission error:", err);
