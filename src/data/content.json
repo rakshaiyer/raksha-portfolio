@@ -14,7 +14,10 @@
 
   "about": {
     "title": "About",
-    "description": "I'm a frontend and React Native engineer with 3+ years of shipping mobile and web apps that real people use every day. I care deeply about how things feel to use — clean state management, strong architecture, fast rendering, and interfaces that stay out of the way. Right now I'm building smart home experiences at Suitable AI. Before that, I spent nearly 3 years at SpurTree Technologies building CRM-driven apps used by B2B and B2C retail teams across India."
+    "description": [
+    "I’m a frontend and React Native engineer with 3+ years of experience building and scaling production mobile and web applications. My focus is on maintainable architecture, predictable state management, performance optimization, and clean UI systems.",
+    "I’m currently building smart home experiences at Suitable AI. Previously, I spent nearly 3 years at SpurTree Technologies developing CRM-driven platforms for retail teams across India."
+  ]
   },
 "skills": {
   "groups": [
@@ -39,6 +42,17 @@
       "items": ["SFDC", "CustomerGlu", "HyperVerge", "Vispera", "WebEngage", "Okta", "Stripe"]
     }
   ]
+},
+"rnUpgrade": {
+  "title": "React Native Upgrade (0.63 → 0.73)",
+  "intro": "Migrated a production-scale React Native app across major architectural shifts including AndroidX, Hermes, and native bridge updates.",
+  "challenges": [
+    "Gradle version conflicts",
+    "AndroidX migration issues",
+    "Deprecated lifecycle methods",
+    "Native module breaking changes"
+  ],
+  "solution": "Used incremental upgrade strategy, resolved peer dependency mismatches, updated Hermes engine, refactored incompatible native modules, and validated release builds across Android and iOS."
 },
 
   "projects": {

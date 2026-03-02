@@ -36,43 +36,100 @@ For production, add the same variable in your Vercel project settings under Envi
 
 ```markdown
 
-├── public/                      # Static assets (resume, images, favicon)
+├── public/                          # Static assets (resume, avatar, favicon)
 │   └── shreeRakshaResume.pdf
+│
 ├── src/
-│   ├── app/                     # App Router structure
+│   ├── app/                         # App Router structure
 │   │   ├── api/
 │   │   │   └── contact/
-│   │   │       └── route.ts     # Server-side contact API (rate limited)
-│   │   ├── layout.tsx           # Root layout
-│   │   ├── page.tsx             # Entry page
-│   │   └── globals.scss         # Global styles
+│   │   │       └── route.ts         # Server-side contact API (rate limited)
+│   │   │
+│   │   ├── engineering/
+│   │   │   └── rn-upgrade/
+│   │   │       ├── page.tsx         # RN upgrade case study page
+│   │   │       └── page.module.scss
+│   │   │
+│   │   ├── layout.tsx               # Root layout
+│   │   ├── page.tsx                 # Entry page
+│   │   └── globals.scss             # Global styles
 │   │
-│   ├── components/              # Reusable UI components
+│   ├── components/                  # Reusable UI components
 │   │   ├── about.tsx
 │   │   ├── contact.tsx
 │   │   ├── dashboard.tsx
-│   │   ├── hero.tsx
 │   │   ├── projects.tsx
 │   │   ├── resume.tsx
 │   │   ├── skills.tsx
-│   │   └── *.module.scss        # Component-level styles
+│   │   └── *.module.scss            # Component-level styles
 │   │
-│   └── data/
-│       └── content.json         # Static content configuration
+│   ├── data/
+│   │   └── content.json             # Centralized portfolio content
+│   │
+│   └── types/
+│       └── content.ts               # Fully typed content schema
 │
-├── next.config.js               # Next.js configuration
-├── package.json                 # Dependencies and scripts
-├── .env.local                   # Local environment variables (not committed)
-├── .gitignore                   # Git ignore rules
-└── README.md                    # Project documentation
+├── next.config.js
+├── package.json
+├── .env.local                       # Not committed
+├── .gitignore
+└── README.md
 
 ```
+## Features
 
-Responsive layout (desktop and mobile)
+Responsive layout (desktop + mobile)
 
 Modular component architecture
 
-Resume download
+Data-driven content via content.json
+
+Strict TypeScript typing (no any)
+
+Animated UI using Framer Motion
+
+Engineering case study page
+
+Resume preview (PDF modal)
+
+Contact form with:
+
+Email validation
+
+Server-side rate limiting
+
+Spam protection via Formspree
+
+Production-ready Vercel deployment
+
+## Engineering Case Study
+
+The portfolio includes a dedicated case study:
+
+```bash /engineering/rn-upgrade ```
+
+It highlights:
+
+React Native 0.63 → 0.73 migration
+
+Gradle conflicts
+
+AndroidX migration
+
+Hermes updates
+
+Native module compatibility fixes
+
+Structured solution breakdown
+
+All content is centralized in:
+
+```bash src/data/content.json ```
+
+Typed via:
+
+```bash src/types/content.ts ```
+
 
 ## Contact form with:
 
@@ -86,7 +143,7 @@ Environment variable configuration
 
 Deployment-ready setup for Vercel
 
-Build for Production
+## Build for Production
 
 ```bash
 npm run build
